@@ -1,12 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    height: calc(100vh-8em);
+    justify-content: center;
+    align-items: center;
+    display: flex;
     cursor: none;
-    padding: 4em;
     color: #979eae;
-    background: #2c3e50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3498db, #2c3e50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3498db, #2c3e50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+background: #001dc4;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #33cffa, #001dc4);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #33cffa, #001dc4); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     
+}
+ul {
+  list-style-type: none;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 60px;
+    z-index: 10;
+}
+.header-row {
+    margin-top: 100px;;
+    display: flex;
+    font-family: 'Inconsolata', monospace;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    opacity: 1;
+    cursor: none;
+    animation: fade-in1 2.65s ease;
+}
+
+.nav ul {
+    display: flex;
+    align-items: center;
+    cursor: none;
+    list-style-type: none;
+    
+}
+.nav li + li {
+    margin-left: 16px;
+    list-style-type: none;
+    cursor: none;
+    text-decoration: none
+}
+.nav li a {
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 40px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-family: 'Inconsolata', monospace;
+    border-radius: 2em;
+    display: flex;
+    cursor: none;
+    list-style-type: none;
+    text-decoration: none
 }
 .container {
     width: 100%;
@@ -14,33 +70,115 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+#cards{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 80px;
+    top:350px;
+    max-width: 1920px;
+    width: calc(100%-20px);
+}
+
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);;
+    border-radius: 10px;
+    cursor: none;
+    display: flex;
+    height: 400px;
+    flex-direction: column;
+    position:static;
+    width: 500px;  
+    opacity: 1;
+    animation: fade-in 3.5s ease;
   }
 
+  @keyframes fade-in{
+    0%{opacity: 0;}
+    70%{opacity: 0;}
+    100%{opacity: 1;}
+  }
+  @keyframes fade-in1{
+    0%{opacity: 0;}
+    70%{opacity: 0.0;}
+    100%{opacity: 1;}
+  }
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .card::before,
+  .card::after {
+    border-radius: inherit;
+    content: "";
+    height: 100%;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    transition: opacity 500ms;
+    width: 100%;
+  }
+  
+  .card::before {
+    background: radial-gradient(
+      800px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(255, 255, 255, 0.06),
+      transparent 40%
+    );
+    z-index: 3;
+  }
+  
+  .card::after {  
+    background: radial-gradient(
+      600px circle at var(--mouse-x) var(--mouse-y), 
+      rgba(255, 255, 255, 0.4),
+      transparent 40%
+    );
+    z-index: 1;
+  }
+  
+  .card > .card-content {
+    background-color: var(--card-color);
+    border-radius: inherit;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    inset: 1px;
+    padding: 10px;
+    position: absolute;
+    z-index: 2;
+  }
 .start{
     position: relative;
     font-family: 'Inconsolata', monospace;
-    top: -120px;
-    width: 16em;
+    top: -220px;
+    width: 6.5em;
     margin: 0 auto;
+    border-right: 0px solid transparent;
     font-size: 250%;
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    transform: translateY(-100%);
-    color: white;
+    transform: translateY(-50%);
+    color:white;
+    cursor: none;
     animation: move 2s ease;
+    font-weight: 800;
 }
 
 @keyframes move{
-    0%{top:55%;}
-    25%{top:55%;}
-    100%{top: -120px;;}
+    0%{top: 67.5%; border-right: 2px solid #979eae; width: 6.5em}
+    15%{top:67.5%;}
+    60%{border-right: 2px solid transparent; width: 6.5em;}
+    100%{top: -220px; border-right: 2px solid transparent; width: 6.5em;}
 }
 
 html {
     cursor: none;
-    min-height: 100%;
-    overflow:hidden;
+    scroll-behavior: smooth;
 }
 
 /*Animation*/

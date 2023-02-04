@@ -1,21 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
     <link rel="stylesheet" href="menu.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script type="module" src="/intro.js"></script>
+    <script type="module" src="/menu.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="cursor"></div>
+    <div class="cursor" ></div>
     <div class="container">
-    <h1 class="start"> timothy tran.</h1>
+    <div class="start"> timothy tran.</div>
+    <header class="header">
+        <div class="header-row">
+            <nav class="nav">
+                <ul class="cursor-scale small">
+                    <li><a href="#">home</a></li>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">work</a></li>
+                </ul>
+              </nav>
+              </div>
+            </header>
     </div>
-    <br> 
+    <div id="cards">
+    <div class="card cursor-scale"></div>
+    <div class="card cursor-scale"></div>
+    <div class="card cursor-scale"></div>
+    </div>
 </body>
 </html>

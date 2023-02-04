@@ -1,10 +1,14 @@
-let start = document.querySelector(".start");
-
-start.onclick = function() {
-	window.location="menu.html";
-};
-
-var cursor = document.querySelector('.cursor'),
+document.getElementById("cards").onmousemove = e => {
+    for(const card of document.getElementsByClassName("card")) {
+      const rect = card.getBoundingClientRect(),
+            x = e.clientX - rect.left,
+            y = e.clientY - rect.top;
+  
+      card.style.setProperty("--mouse-x", `${x}px`);
+      card.style.setProperty("--mouse-y", `${y}px`);
+    };
+  }
+  var cursor = document.querySelector('.cursor'),
     cursorScale = document.querySelectorAll('.cursor-scale'),
     mouseX = 0,
     mouseY = 0
