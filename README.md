@@ -1,2 +1,2 @@
 # Portfolio Website
- My first self-learned website
+ My first website
